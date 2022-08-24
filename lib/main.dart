@@ -3,17 +3,20 @@ import 'package:pokedex/model/repositories/repository.dart';
 import 'package:pokedex/presenter/pokemon_presenter.dart';
 import 'view/home_page.dart';
 import 'view/info_page.dart';
+// ignore: depend_on_referenced_packages
 import 'package:provider/provider.dart';
 
 void main() {
-
-  runApp(MultiProvider(
-    providers: [
-      ChangeNotifierProvider(create: (context) => PokemonPresenter(Repository()),)
-    ],
-    child: const MyApp(),
-  ),
- );
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => PokemonPresenter(Repository()),
+        ),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -24,12 +27,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Pokedex',
-      theme: ThemeData(         
+      theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
       routes: {
-        '/':(context) => const PagInicial(),
-        '/info':(context) => const Info(),
+        '/': (context) => const PagInicial(),
+        '/info': (context) => const Info(),
       },
       initialRoute: '/',
     );
